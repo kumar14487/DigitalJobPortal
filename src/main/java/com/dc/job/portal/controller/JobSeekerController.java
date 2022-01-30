@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dc.job.portal.dto.JobSearchResponse;
 import com.dc.job.portal.dto.JobSeekerDto;
-import com.dc.job.portal.entity.JobOpening;
 import com.dc.job.portal.service.JobSeekerCustomService;
 import com.dc.job.portal.service.JobSeekerService;
 
@@ -48,11 +47,11 @@ public class JobSeekerController {
 	@RequestMapping(value = "/searchjobs", method = RequestMethod.GET)
 	public List<JobSearchResponse> searchJobs(
 			@RequestParam("searchSkills") String searchSkills,
-			@RequestParam("locations") String locations,
+			@RequestParam("locations") Optional<String> locations,
 			@RequestParam("companies") String companies, 
 			@RequestParam("min") String min,
 			@RequestParam("max") String max) {
-		return jobSeekerCustomService.searchJobs(searchSkills,locations,companies,min,max);
+		return jobSeekerCustomService.searchJobs(searchSkills,locations.get(),companies,min,max);
 	}
 
 	@GetMapping("/jobseeker")

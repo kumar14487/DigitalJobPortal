@@ -82,7 +82,7 @@ public class GlobalExceptionHandlerController {
 	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorDto> handleException(HttpServletRequest request, Exception ex) {
-		logger.error("Exception handler executed>>>>" + ex.getMessage());
+		logger.error("Exception handler executed>>>>" + ex);
 		// returning 404 error code
 		return new ResponseEntity<ErrorDto>(getErrorDto(ex,Constants.ERROR_CODE_104), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
