@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dc.job.portal.dto.JobSearchResponse;
-import com.dc.job.portal.entity.JobOpening;
+import com.dc.job.portal.exception.BusinessException;
 import com.dc.job.portal.repository.JobSeekerRepository;
 import com.dc.job.portal.repository.impl.JobSeekerCustomRepositoryImpl;
 import com.dc.job.portal.service.JobSeekerCustomService;
@@ -25,7 +25,7 @@ public class JobSeekerCustomServiceImpl implements JobSeekerCustomService{
 	Gson gson;
 
 	@Override
-	public List<JobSearchResponse> searchJobs(String searchSkills,String locations,String companies,String min,String max) {
+	public List<JobSearchResponse> searchJobs(String searchSkills,String locations,String companies,String min,String max) throws BusinessException {
 		return jobSeekerRepositoryCustom.searchJobs(  searchSkills, locations, companies, min, max);
 	}
 

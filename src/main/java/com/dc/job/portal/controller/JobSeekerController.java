@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dc.job.portal.dto.JobSearchResponse;
 import com.dc.job.portal.dto.JobSeekerDto;
+import com.dc.job.portal.exception.BusinessException;
 import com.dc.job.portal.service.JobSeekerCustomService;
 import com.dc.job.portal.service.JobSeekerService;
 
@@ -50,7 +51,7 @@ public class JobSeekerController {
 			@RequestParam("locations") Optional<String> locations,
 			@RequestParam("companies") String companies, 
 			@RequestParam("min") String min,
-			@RequestParam("max") String max) {
+			@RequestParam("max") String max) throws BusinessException {
 		return jobSeekerCustomService.searchJobs(searchSkills,locations.get(),companies,min,max);
 	}
 
