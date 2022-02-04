@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.dc.job.portal.validator.RoleTypeValidation;
+
 @Entity
 @Table(name = "role")
 public class Role  implements Serializable {
@@ -22,6 +24,8 @@ public class Role  implements Serializable {
 	@Column(name = "id", unique = true, nullable = false)
 	private int id;
 	
+	
+	@RoleTypeValidation(message="Role should be RECRUITER or JOBSEEKER")
 	@Column(name = "role_name", unique = true, nullable = false)
 	private String roleName;
 	

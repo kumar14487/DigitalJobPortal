@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.dc.job.portal.validator.JobTypeValidation;
+
 /**
  * @author raj14487
  *
@@ -29,6 +31,7 @@ public class JobType  implements Serializable {
 	@Column(name = "job_type_id", unique = true, nullable = false)
 	private int jobTypeId;
 
+	@JobTypeValidation
 	@Column(name = "job_type")
 	private String jobType;
 
